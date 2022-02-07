@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }} ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <p>{{ session['count'] }}</p>
+        <div class="wanna_be_form">
+            <a href="/">Add 1</a>
+            <a href="/count2">Add 2</a>
+            <a href="/destroy_session">Reset</a>
+        </div>
+        <form action="/count_user" method="post">
+            <input class="text_field" type="text" name="user_input" placeholder="Pick a number to add!">
+            <input class="button" type="submit" value="Add">
+        </form>
+        <p>Actual page visits: {{ session['visits'] }} </p>
+    </div>
+</body>
+</html>
